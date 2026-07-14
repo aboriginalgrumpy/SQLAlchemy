@@ -1,0 +1,33 @@
+name: Backend Security Cloud Test
+
+#trigger every push
+on: [push]
+
+jobs: 
+  run-security-check:
+    runs-on: windows-latest #or you can use ubuntu/macos depending how you want it
+
+    steps:
+      - name: Checkout Repository Code
+        uses: actions/checkout@v4
+
+      - name: Set up Python Environment
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Simulate Secure Database Connection
+        env:
+          DB_PASS: ${{ secrets.DB_PASS }}
+        run: |
+          echo "Cloud active"
+          echo "Checking database"
+          #trial and error
+          if [ -z "$DB_PASS" ]; then
+            echo "FAILED: The Cloud Secret vault is completely empty!"
+            exit 1
+          else
+            echo "SUCCESS: secret detected"
+          fi
+
+
