@@ -23,6 +23,13 @@ jobs:
         run: |
           echo "Cloud active"
           echo "Checking database"
-          echo "$TESTING"
+          echo "$TESTING $DB_PASS"
+
+        with:
+          script: |
+            import os
+            print(os.getenv("TESTING"))
+            print(os.getenv("DB_PASS"))
+            print("End of python")
 
 
