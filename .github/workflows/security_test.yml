@@ -23,7 +23,7 @@ jobs:
         env:
           DB_PASS: ${{ secrets.DB_PASS }}
         shell: bash
-        run:
+        run: |
           echo "Cloud active"
           echo "Checking database"
           echo "Variables: $DB_PASS"
@@ -33,7 +33,7 @@ jobs:
         env: 
           DB_PASS ${{ secrets.PROD_DB_PASS }}
         shell: bash
-        run:
+        run: |
           python -c "
           import os
           print('Python env check:', os.getenv('DB_PASS'))
