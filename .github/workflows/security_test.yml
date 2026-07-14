@@ -19,6 +19,7 @@ jobs:
       - name: Simulate Secure Database Connection
         env:
           DB_PASS: ${{ secrets.DB_PASS }}
+        shell: bash
         run: |
           echo "Cloud active"
           echo "Checking database"
