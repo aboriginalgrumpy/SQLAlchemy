@@ -18,12 +18,12 @@ jobs:
 
       - name: Simulate Secure Database Connection
         env:
-          DB_PASS: ${{ secrets.DB_PASS }}
+          DB_PASS: ${{ secrets.TESTING }}
         shell: bash
         run: |
           echo "Cloud active"
           echo "Checking database"
           # trial and error
-          echo "$DB_PASS"
+          echo "$TESTING"
 
 
