@@ -31,7 +31,7 @@ jobs:
     #4: Pass the real secret to python
       - name: Verify Secret inside Python Runtime
         env: 
-          DB_PASS ${{ secrets.DB_PASS }}
+          DB_PASS: ${{ secrets.DB_PASS }}
         shell: bash
         run: |
           python -c "
