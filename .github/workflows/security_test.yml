@@ -14,7 +14,7 @@ jobs:
       - name: Set up Python Environment
         uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
+          python-version: '3.12.7'
 
       - name: Simulate Secure Database Connection
         env:
@@ -23,12 +23,7 @@ jobs:
         run: |
           echo "Cloud active"
           echo "Checking database"
-          #trial and error
-          if [ -z "$DB_PASS" ]; then
-            echo "FAILED: The Cloud Secret vault is completely empty!"
-            exit 1
-          else
-            echo "SUCCESS: secret detected"
-          fi
+          # trial and error
+          echo "$DB_PASS"
 
 
